@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { GraduationCap, Sparkles, Github, Linkedin, Mail } from 'lucide-react';
+import { GraduationCap, Sparkles, Mail } from 'lucide-react';
+import { FaGithub,  FaLinkedin } from "react-icons/fa";
 
 export default function About() {
   return (
@@ -76,9 +77,14 @@ export default function About() {
             <GraduationCap className="h-5 w-5" /> Education
           </h3>
           <div className="text-gray-700 dark:text-gray-300">
-            <p className="font-medium">BSc. Computer Science</p>
-            <p>Makerere University, Uganda</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">2017 – 2021</p>
+            <p className="font-medium">BSc. Information Security & Forensics</p>
+            <p>KCA University</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">2021 – 2025</p>
+          </div>
+          <div className="text-gray-700 dark:text-gray-300">
+            <p className="font-medium">Certificate of Software Engineering</p>
+            <p>Moringa School</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">2022 – 2023</p>
           </div>
         </div>
 
@@ -89,14 +95,14 @@ export default function About() {
             target="_blank"
             className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
           >
-            <Github className="w-6 h-6" />
+            <FaGithub className="w-6 h-6" />
           </a>
           <a
             href="https://linkedin.com/in/yourusername"
             target="_blank"
             className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
           >
-            <Linkedin className="w-6 h-6" />
+            <FaLinkedin className="w-6 h-6" />
           </a>
           <a
             href="mailto:youremail@example.com"
