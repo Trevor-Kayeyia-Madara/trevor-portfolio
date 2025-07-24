@@ -1,16 +1,32 @@
 'use client';
 
-import { projects } from '@/data/projects';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { projects } from '@/data/projects';
+import ProjectModal from './ProjectsModal';
+
+// Define the project type
+interface Project {
+  title: string;
+  description: string;
+  details: string;
+  tech: string[];
+  github: string;
+  demo: string;
+  image?: string;
+}
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   return (
     <section
       id="projects"
       className="py-24 px-6 md:px-24 bg-white dark:bg-black transition-colors"
     >
+      {/* Section Title */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -20,6 +36,7 @@ export default function Projects() {
         Projects
       </motion.h2>
 
+      {/* Project Cards */}
       <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div
@@ -27,18 +44,21 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md hover:shadow-xl transition-all duration-300"
+            className="bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer"
+            onClick={() => setSelectedProject(project)}
           >
+            {/* Image */}
             {project.image && (
-              <div className="w-full h-52 relative rounded-t-2xl overflow-hidden">
+              <div className="w-full h-52 relative">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="hover:scale-105 transition-transform duration-300"
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             )}
 
+            {/* Content */}
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
                 {project.title}
@@ -66,6 +86,7 @@ export default function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-1 text-sm"
+                  onClick={e => e.stopPropagation()}
                 >
                   <FaGithub size={16} /> GitHub
                 </a>
@@ -74,6 +95,7 @@ export default function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-1 text-sm"
+                  onClick={e => e.stopPropagation()}
                 >
                   <ExternalLink size={16} /> Live Demo
                 </a>
@@ -82,6 +104,15 @@ export default function Projects() {
           </motion.div>
         ))}
       </div>
+
+      {/* Modal */}
+      {selectedProject && (
+        <ProjectModal
+          isOpen={!!selectedProject}
+          onClose={() => setSelectedProject(null)}
+          {...selectedProject}
+        />
+      )}
     </section>
   );
 }

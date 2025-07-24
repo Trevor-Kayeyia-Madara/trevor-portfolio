@@ -6,7 +6,13 @@ export const projects = [
     tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
     github: "https://github.com/Trevor-Kayeyia-Madara/trevor-portfolio",
     demo: "https://yourdomain.com",
-    image: "/images/portfolio.png", // optional
+    image: "/images/portfolio.png",
+    details: `
+                This is a full-stack portfolio project with:
+                - Light/Dark toggle
+                - Responsive layout
+                - Framer motion transitions
+` // optional
   },
   {
     title: "School Management System",
@@ -14,7 +20,28 @@ export const projects = [
     tech: ["MongoDB", "Express", "React", "Node.js"],
     github: "https://github.com/Trevor-Kayeyia-Madara/Mahiu-Girls-School-System",
     demo: "https://mahiu-girls-school-system.vercel.app/",
-    image: "/images/school.png", // optional
+    image: "/images/school.png",
+    details: `
+                ✅ Admin Panel
+                        User management (create, read, update, delete)
+                        Manage Teachers, Students, Subjects, Classrooms
+                        Assign Subjects and Class Teachers
+                        Create Timetables with inline editing
+                        Manage Exam Types and Schedules
+                        View and export Class and Student Reports (CSV/PDF)
+                        View KCSE-style rankings and class mean scores
+                      ✅ Teacher Panel
+                        View assigned subjects and classes
+                        Enter and update student grades per exam
+                        View and export performance summaries
+                        Generate class reports
+                        Student performance breakdown and analysis
+                      ✅ Parent Panel
+                        View child’s academic performance
+                        Download child’s report cards (CSV/PDF)
+                        View class position and KCSE grade summaries
+
+` // optional
   },
   {
     title: "Deliverance Church Utawala",
@@ -23,6 +50,10 @@ export const projects = [
     github: "https://github.com/Trevor-Kayeyia-Madara/Mahiu-Girls-School-System",
     demo: "https://www.dcutawala.org",
     image: "/images/church.png", // optional
+        details: `
+                Church of choice
+` 
+    
   },
   {
     title: "Online Hair Finder",
@@ -31,6 +62,9 @@ export const projects = [
     github: "https://github.com/Trevor-Kayeyia-Madara/hair-specialist",
     demo: "https://hair-specialist.vercel.app/",
     image: "/images/hair.png", // optional
+    details: `
+        Online web portal for specialists and customers
+` 
   },
     {
     title: "Alertsphere",
@@ -39,5 +73,6 @@ export const projects = [
     github: "https://github.com/Trevor-Kayeyia-Madara/alertsphere",
     demo: "https://alertsphere.vercel.app/",
     image: "/images/security.png", // optional
+    details: `Security` 
   },
 ];
