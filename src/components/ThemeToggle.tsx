@@ -1,27 +1,31 @@
-import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+'use client';
+
+import { useEffect, useState } from 'react';
+import { Moon, Sun } from 'lucide-react';
 
 export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const [dark, setDark] = useState(true);
 
+  // On mount, read theme from localStorage or system preference
   useEffect(() => {
-    const local = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    setDark(local === "dark" || (!local && systemPrefersDark));
+    const storedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setDark(storedTheme === 'dark' || (!storedTheme && systemPrefersDark));
     setMounted(true);
   }, []);
 
+  // Apply theme to <html> tag
   useEffect(() => {
     if (!mounted) return;
+
     const root = document.documentElement;
     if (dark) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [dark, mounted]);
 
@@ -30,8 +34,9 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setDark(!dark)}
-      className="p-2 text-accent hover:scale-110 transition-transform"
-      aria-label="Toggle theme"
+      aria-label="Toggle Theme"
+      className={`p-2 rounded-full transition-all duration-300 hover:scale-110
+        ${dark ? 'text-yellow-400' : 'text-blue-600'}`}
     >
       {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
     </button>
