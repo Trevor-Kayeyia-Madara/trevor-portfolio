@@ -91,21 +91,21 @@ export default function About() {
         {/* Social Links */}
         <div className="flex gap-6 mt-4 md:mt-0">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Trevor-Kayeyia-Madara"
             target="_blank"
             className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
           >
             <FaGithub className="w-6 h-6" />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/trevor-madara/"
             target="_blank"
             className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
           >
             <FaLinkedin className="w-6 h-6" />
           </a>
           <a
-            href="mailto:youremail@example.com"
+            href="mailto:trevormadarakayeyia@gmail.com"
             className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition"
           >
             <Mail className="w-6 h-6" />
