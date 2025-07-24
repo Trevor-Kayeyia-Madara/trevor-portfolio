@@ -12,7 +12,7 @@ export default function StarsBackground() {
     <Particles
       id="tsparticles"
       init={particlesInit}
-      className="absolute inset-0 -z-10"
+      className="absolute inset-0 -z-0"
       options={{
         fullScreen: false,
         background: {
