@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaPaperPlane, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import toast from 'react-hot-toast';
+import confetti from 'canvas-confetti';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,6 +25,11 @@ export default function Contact() {
 
       if (res.ok) {
         toast.success('Message sent successfully!');
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
         form.reset();
       } else {
         toast.error('Something went wrong. Try again.');
@@ -50,7 +56,7 @@ export default function Contact() {
         Contact Me
       </motion.h2>
 
-      <div className="grid md:grid-cols-2 gap-12">
+      <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Contact Form */}
         <motion.form
           initial={{ opacity: 0, y: 30 }}
@@ -108,7 +114,7 @@ export default function Contact() {
           </motion.button>
         </motion.form>
 
-        {/* Contact Info / Socials */}
+        {/* Social Links Section */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -117,7 +123,7 @@ export default function Contact() {
         >
           <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Get in Touch</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-            I’m currently open for freelance work, or exciting collaborations. Let’s talk!
+            I'm open to freelance work, collaborations, or a simple hello.
           </p>
 
           <div className="flex gap-4 text-xl text-cyan-600 dark:text-cyan-400 mt-4">
