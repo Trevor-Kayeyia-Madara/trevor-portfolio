@@ -1,69 +1,96 @@
-# React + TypeScript + Vite
+# Trevor Madara — Developer Portfolio 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **modern, dynamic personal portfolio** built using **React + TypeScript + Tailwind CSS + Framer Motion** and deployed for optimal performance.
 
-Currently, two official plugins are available:
+## 🌟 Live Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[trevormadara.dev](https://trevormadara.dev) *(replace with your domain)*
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- ⚙️ Fully Responsive Design
+- 🌗 Dark / Light Theme Toggle
+- 🎯 Smooth Scrolling
+- 🧩 Modular & Lazy Loaded Components
+- 🗂️ Experience, Education, Projects, Contact Sections
+- 📩 Functional Contact Form (Formspree)
+- 🎨 Clean Glassmorphism Styling
+- 🔍 SEO Ready via react-helmet-async
+- 🚫 Custom 404 Not Found Page
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ Tech Stack
+
+- [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [React Helmet Async](https://github.com/staylor/react-helmet-async)
+- [Formspree](https://formspree.io/) for contact form
+- [Vite](https://vitejs.dev/) for lightning-fast builds
+
+---
+
+## 📂 Folder Structure
+
+```
+src/
+│
+├── assets/           # Static assets and images
+├── components/       # Reusable components (Navbar, Hero, About, etc.)
+├── pages/            # Page sections and routing views
+├── styles/           # Tailwind and global styles
+├── App.tsx           # Main App component
+└── main.tsx          # React DOM render entry
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 Getting Started
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repo:
+
+```bash
+git clone https://github.com/trevormadara/portfolio.git
+cd portfolio
+npm install
+npm run dev
 ```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview production:
+
+```bash
+npm run preview
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🙌 Acknowledgements
+
+- [three-globe](https://github.com/vasturiano/three-globe) (removed)
+- [LottieFiles](https://lottiefiles.com/) *(optional animations)*
+
+---
+
+## 📅 Last Updated
+
+**July 25, 2025**
+
+---
+
+### Made with 💻 by [Trevor Madara](https://github.com/trevormadara)
