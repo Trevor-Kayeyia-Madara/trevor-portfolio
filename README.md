@@ -4,7 +4,7 @@ This is a **modern, dynamic personal portfolio** built using **React + TypeScrip
 
 ## 🌟 Live Preview
 
-[trevormadara.dev](https://trevormadara.dev) *(replace with your domain)*
+[Portfolio](https://trevor-portfolio.vercel.app/) *(replace with your domain)*
 
 ---
 
