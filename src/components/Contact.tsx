@@ -29,6 +29,7 @@ export default function Contact() {
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
+          colors: ['#9b5de5', '#c77dff', '#6c63ff'],
         });
         form.reset();
       } else {
@@ -45,19 +46,25 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-6 md:px-24 bg-white dark:bg-black transition-colors"
+      className="py-24 px-6 md:px-24 
+        bg-gradient-to-b from-[#f8f5ff] to-white 
+        dark:from-[#0a0013] dark:to-[#1b0033] 
+        transition-colors duration-500"
     >
+      {/* Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="text-3xl md:text-5xl font-bold mb-12 text-gray-900 dark:text-white"
+        className="text-3xl md:text-5xl font-bold mb-12 
+          bg-gradient-to-r from-[#9b5de5] via-[#c77dff] to-[#6c63ff] 
+          bg-clip-text text-transparent"
       >
         Contact Me
       </motion.h2>
 
       <div className="grid md:grid-cols-2 gap-12 items-center">
-        {/* Contact Form */}
+        {/* Form */}
         <motion.form
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,95 +72,135 @@ export default function Contact() {
           onSubmit={handleSubmit}
           action="https://formspree.io/f/meozayvg"
           method="POST"
-          className="grid gap-6"
+          className="grid gap-6 p-6 rounded-xl shadow-xl 
+            bg-white/70 dark:bg-[#120022]/60 backdrop-blur-lg 
+            border border-purple-200 dark:border-purple-900"
         >
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              required
-              className="w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-cyan-500"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              required
-              className="w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-cyan-500"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Message
-            </label>
-            <textarea
-              name="message"
-              rows={5}
-              required
-              className="w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-cyan-500"
-            />
-          </div>
+          <InputField label="Name" name="name" type="text" required />
+          <InputField label="Email" name="email" type="email" required />
+          <TextArea label="Message" name="message" required />
 
           <motion.button
             type="submit"
             whileTap={{ scale: 0.96 }}
             disabled={isSubmitting}
-            className="bg-cyan-600 text-white px-6 py-2 rounded-md shadow hover:bg-cyan-500 transition-colors flex items-center gap-2"
+            className="flex items-center justify-center gap-2 
+              bg-gradient-to-r from-[#9b5de5] to-[#6c63ff] 
+              hover:from-[#c77dff] hover:to-[#9b5de5] 
+              text-white font-semibold px-6 py-3 rounded-md shadow-lg 
+              transition-all"
           >
             <FaPaperPlane />
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </motion.button>
         </motion.form>
 
-        {/* Social Links Section */}
+        {/* Contact Info & Socials */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="flex flex-col justify-center dark:bg-gray-900 bg-gray-50 p-6 rounded-xl shadow-xl border border-gray-200 dark:border-gray-800"
+          className="flex flex-col justify-center 
+            dark:bg-[#120022]/60 bg-purple-50/70 
+            border border-purple-200 dark:border-purple-900 
+            rounded-xl shadow-xl p-8 backdrop-blur-lg"
         >
-          <h3 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Get in Touch</h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            I'm open to freelance work, collaborations, or a simple hello.
+          <h3
+            className="text-2xl font-semibold mb-4 
+              bg-gradient-to-r from-[#9b5de5] to-[#c77dff] 
+              bg-clip-text text-transparent"
+          >
+            Get in Touch
+          </h3>
+
+          <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+            Whether you’re looking to collaborate, need a developer for a project, or just want to say hi — my inbox is always open.
           </p>
 
-          <div className="flex gap-4 text-xl text-cyan-600 dark:text-cyan-400 mt-4">
-            <a
-              href="https://github.com/trevormadara"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-cyan-400"
-            >
-              <FaGithub />
-            </a>
-            <a
-              href="https://linkedin.com/in/trevormadara"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-cyan-400"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="mailto:trevormadarakayeyia@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-cyan-400"
-            >
-              <FaTwitter />
-            </a>
+          <div className="flex gap-5 text-2xl text-[#9b5de5] dark:text-[#c77dff] mt-2">
+            <SocialLink href="https://github.com/trevormadara" icon={<FaGithub />} />
+            <SocialLink href="https://linkedin.com/in/trevormadara" icon={<FaLinkedin />} />
+            <SocialLink href="mailto:trevormadarakayeyia@gmail.com" icon={<FaTwitter />} />
           </div>
         </motion.div>
       </div>
     </section>
+  );
+}
+
+/* 🧩 Input Field Component */
+function InputField({
+  label,
+  name,
+  type,
+  required,
+}: {
+  label: string;
+  name: string;
+  type: string;
+  required?: boolean;
+}) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-800 dark:text-gray-300 mb-1">
+        {label}
+      </label>
+      <input
+        type={type}
+        name={name}
+        required={required}
+        className="w-full px-4 py-3 border rounded-md 
+          bg-white/90 dark:bg-[#0a0013]/70 
+          border-purple-300 dark:border-purple-900 
+          text-gray-800 dark:text-gray-100 
+          focus:ring-2 focus:ring-[#9b5de5] 
+          transition-all"
+      />
+    </div>
+  );
+}
+
+/* 🧩 Text Area Component */
+function TextArea({
+  label,
+  name,
+  required,
+}: {
+  label: string;
+  name: string;
+  required?: boolean;
+}) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-800 dark:text-gray-300 mb-1">
+        {label}
+      </label>
+      <textarea
+        name={name}
+        rows={5}
+        required={required}
+        className="w-full px-4 py-3 border rounded-md 
+          bg-white/90 dark:bg-[#0a0013]/70 
+          border-purple-300 dark:border-purple-900 
+          text-gray-800 dark:text-gray-100 
+          focus:ring-2 focus:ring-[#9b5de5] 
+          transition-all"
+      />
+    </div>
+  );
+}
+
+/* 🧩 Social Link Component */
+function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-[#c77dff] hover:scale-110 
+        transition-transform drop-shadow-[0_0_8px_rgba(155,93,229,0.4)]"
+    >
+      {icon}
+    </a>
   );
 }

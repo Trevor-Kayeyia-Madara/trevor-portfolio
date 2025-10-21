@@ -34,13 +34,13 @@ export default function ProjectModal({
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
-          enterFrom="opacity-0" 
+          enterFrom="opacity-0"
           enterTo="opacity-100"
           leave="ease-in duration-200"
-          leaveFrom="opacity-100" 
+          leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm" />
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-md" />
         </Transition.Child>
 
         {/* Panel */}
@@ -49,19 +49,28 @@ export default function ProjectModal({
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95" 
+              enterFrom="opacity-0 scale-95"
               enterTo="opacity-100 scale-100"
               leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100" 
+              leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white dark:bg-gray-900 p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel
+                className="w-full max-w-3xl transform overflow-hidden rounded-2xl 
+                bg-gradient-to-br from-white via-[#f8f5ff] to-[#f3e8ff] 
+                dark:from-[#100024] dark:via-[#1a0833] dark:to-[#150027]
+                p-6 text-left align-middle shadow-[0_0_30px_#9b5de5]/40 transition-all"
+              >
                 <div className="flex justify-between items-center mb-4">
-                  <Dialog.Title className="text-xl font-bold text-gray-900 dark:text-white">
+                  <Dialog.Title
+                    className="text-xl font-bold 
+                    bg-gradient-to-r from-[#9b5de5] via-[#c77dff] to-[#6c63ff] 
+                    bg-clip-text text-transparent"
+                  >
                     {title}
                   </Dialog.Title>
                   <button onClick={onClose}>
-                    <X className="w-5 h-5 text-gray-600 dark:text-gray-300 hover:text-red-500" />
+                    <X className="w-5 h-5 text-gray-600 dark:text-gray-300 hover:text-[#c77dff]" />
                   </button>
                 </div>
 
@@ -73,14 +82,20 @@ export default function ProjectModal({
                   />
                 )}
 
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">{description}</p>
-                <pre className="whitespace-pre-wrap text-gray-800 dark:text-gray-200 text-sm mb-4">{details}</pre>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
+                  {description}
+                </p>
+                <pre className="whitespace-pre-wrap text-gray-800 dark:text-gray-200 text-sm mb-4">
+                  {details}
+                </pre>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {tech.map((t, i) => (
                     <span
                       key={i}
-                      className="bg-cyan-100 dark:bg-cyan-800/30 text-cyan-700 dark:text-cyan-300 text-xs font-medium px-2 py-1 rounded"
+                      className="bg-[#f0e6ff] dark:bg-[#9b5de5]/30 
+                      text-[#7a00ff] dark:text-[#d4b3ff] text-xs font-medium 
+                      px-2 py-1 rounded"
                     >
                       {t}
                     </span>
@@ -92,7 +107,7 @@ export default function ProjectModal({
                     href={demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:underline"
+                    className="text-sm font-medium text-[#c77dff] hover:text-[#9b5de5] hover:underline"
                   >
                     🌐 Live Demo
                   </a>
@@ -100,7 +115,7 @@ export default function ProjectModal({
                     href={github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:underline"
+                    className="text-sm font-medium text-[#9b5de5] hover:text-[#c77dff] hover:underline"
                   >
                     🐙 GitHub
                   </a>
